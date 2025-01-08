@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <input id="c" type="number" placeholder="Celsius">
+        <input id="fh" type="number" placeholder="Fahrenheit">
+        <button onclick="convert()">calculate</button>
+
+
+<script>
+function convert (){
+    const ce =document.getElementById('c');
+    const fh =document.getElementById('fh');
+    
+
+
+    if(ce.value=="" && fh.value ==""){
+        alert("Please enter one temp. to convert");
+    }else if(ce.value != ""){
+        x = (ce.value * 1.8)+32;
+        fh.value = x ;
+    }else if(fh.value != ""){
+        y = (fh.value - 32)/1.8;
+        ce.value = y;
+    }
+}
+
+
+</script>
+
+</body>
+</html>

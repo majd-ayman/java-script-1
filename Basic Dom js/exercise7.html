@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختيار علم البلد</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: left;
+      margin: 8px;
+    }
+
+    select {
+      padding: 1px;
+      font-size: 16px;
+    }
+
+    img {
+      margin-top: 5px;
+      width: 400px;
+      height: 22vh;
+    }
+  </style>
+</head>
+<body>
+  
+  <select id="countrySelect" onchange="changeFlag()">
+    <option value="sa">السعودية</option>
+    <option value="eg">مصر</option>
+    <option value="jo">الأردن</option>
+    <option value="ma">المغرب</option>
+    <option value="us">الولايات المتحدة</option>
+  </select>
+
+  <div id="flagContainer">
+    <img id="flag" src="https://flagcdn.com/w320/sa.png" alt="علم البلد">
+  </div>
+
+  <script>
+    function changeFlag() {
+      let countryCode = document.getElementById("countrySelect").value;
+
+      let flagImage = document.getElementById("flag");
+      flagImage.src = `https://flagcdn.com/w320/${countryCode}.png`;
+      flagImage.alt = "علم البلد";
+    }
+  </script>
+</body>
+</html>

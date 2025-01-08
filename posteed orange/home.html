@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .user-info {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .user-info h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .user-info p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+            color: #555;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .user-info p:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .user-info p:nth-child(3) {
+            animation-delay: 4s;
+        }
+
+        .user-info p:nth-child(4) {
+            animation-delay: 5s;
+        }
+
+        .user-info p span {
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .user-info button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .user-info button:hover {
+            transform: scale(1.1);
+            background-color: #0056b3;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .user-info p:hover {
+            transform: translateX(10px);
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .user-info p span:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-info">
+        <h1>Welcome to your Home Page</h1>
+        <p><strong>Full Name:</strong> <span id="fullname"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Password:</strong> <span id="password"></span></p>
+        <a href="login.html" id="Sign out">Signout</a>
+    </div>
+
+    <script>
+        document.getElementById('fullname').textContent = sessionStorage.getItem('userFullName');
+        document.getElementById('email').textContent = sessionStorage.getItem('userEmail');
+        document.getElementById('password').textContent = sessionStorage.getItem('userPassword');
+    </script>
+</body>
+</html>

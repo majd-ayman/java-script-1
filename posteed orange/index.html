@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="user registration website - registration process - coding academy by orange ">
+    <meta name="keywords" content="registration,coding,orange, laravel, learning">
+    <meta name="author" content="Marya Alzubi">
+    <title> Register</title>
+    <link rel="preload" href="assets/boosted/dist/fonts/HelvNeue55_W1G.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="assets/boosted/dist/fonts/HelvNeue75_W1G.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="assets/boosted/dist/css/orangeHelvetica.min.css" rel="stylesheet">
+    <link href="assets/boosted/dist/css/orangeIcons.min.css" rel="stylesheet">
+    <link href="assets/boosted/dist/css/boosted.min.css" rel="stylesheet" />
+    <link href="assets/css/client.css" rel="stylesheet">
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/countries.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/js/countrySelect.min.js" integrity="sha512-agmFjG7H3K/n7ca70w6lzdO0MxUFWYcaDrw5WpwBMjhXxfrchssrKyZrJOSEN7q4vIeTcHUX5A7mM6zjbE2ZAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LV1RTXDGY"></script>
+    <link rel="stylesheet" href="assets/boosted/dist/css/boosted.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <div class="d-md-flex flex-md-equal h-100 ">
+        <div class="col-lg-4 p-0 auth-slider my-div">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block h-100 my-div" src="assets/img/1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="" class="d-block h-100 my-div" src="assets/img/2.jpg" alt="Second slide">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 px-0">
+            <header role="banner">
+                <nav role="navigation" id="mainNav" class="navbar navbar-light bg-white navbar-expand-md pt-2 border-bottom pb-0 mb-2 pt-1" aria-label="Main navigation">
+                    <div class="container-fluid">
+                        <a href="/">
+                        <img id="imgw" src="assets/boosted/dist/img/white.png"
+                        class="d-inline-block align-bottom mr-3" alt="Back to homepage" title="Back to homepage"
+                        height="70" loading="lazy" />
+                    </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#orange-navbar-collapse" aria-controls="orange-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                        <div class="navbar-collapse justify-content-end collapse" id="orange-navbar-collapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link" href="/help" target="_blank">Help </a></li>
+                                <li class="nav-item"><a class="nav-link" href="/terms" target="_blank"> Terms & Conditions</a></li>
+                            </ul>
+                            <ul class="navbar-nav">
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <section class="wizard-section mt-4">
+                <div class="form-wizard">
+                    <form id="signupForm" method="post">
+                        <div class="d-flex align-items-center flex-column">
+                            <div class="form-group col-lg-6 col-md-7">
+                                <h1>Create an account</h1>
+                            </div>
+            
+                            <div class="mb-4 form-group col-lg-6 col-md-7">
+                                <label for="fullname" class="is-required">Full Name </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="fullname" required>
+                                </div>
+                            </div>
+            
+                           
+            
+                            <div class="mb-4 form-group col-lg-6 col-md-7">
+                                <label for="email" class="is-required">Email address</label>
+                                <div class="input-group">
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <small>eg: username@domain.com</small>
+                            </div>
+            
+                            <div class="mb-4 form-group col-lg-6 col-md-7">
+                                <label for="mobile" class="is-required">Mobile</label>
+                                <div class="input-group">
+                                    <input type="tel" class="form-control" id="mobile" required>
+                                </div>
+                                <small>eg: 077*******</small>
+                            </div>
+            
+                            <div class="mb-1 form-group col-lg-6 col-md-7">
+                                <label for="password" class="is-required">Create Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" required>
+                                    <div class="d-flex align-items-center" onclick="showPass('password')">
+                                        <i class="fa fa-eye-slash eye btn btn-light border-left-0" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <small>The Password should be between 8-16 characters, containing letters, numbers, and symbols.</small>
+                            </div>
+            
+                            <div class="mb-1 form-group col-lg-6 col-md-7">
+                                <label for="confirmPassword" class="is-required">Confirm Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="confirmPassword" required>
+                                    <div class="d-flex align-items-center" onclick="showPass('confirmPassword')">
+                                        <i class="fa fa-eye-slash eye btn btn-light border-left-0" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <small>Confirm your password.</small>
+                            </div>
+            
+                            <div class="form-group col-lg-6 col-md-7 mt-4">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="chAgree" type="checkbox" required>
+                                    <label class="custom-control-label" for="chAgree">I agree to the <a href="#">terms & conditions </a>Orange. </label>
+                                    <span class="mandatory-txt">*</span>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-7 mt-4">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="ch" type="checkbox" required>
+                                    <label class="custom-control-label" for="ch" id="r">Receive Coding Academy Newsletter.</label>
+                                </div>
+                            </div>
+            
+                            <div class="mb-4 form-group col-lg-6 col-md-7">
+                                <button id="submitBtn" class="btn btn-primary btn-lg btn-block" type="submit" disabled>Sign Up</button>
+                            </div>
+            
+                            <div class="mb-4 form-group col-lg-6 col-md-7">
+                                <a href="login.html" style="text-decoration: none"> <input type="button" class="btn btn-secondary btn-lg btn-block" value="Already have an account?login" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+             
+</div>
+</div> 
+
+
+
+
+<script>
+    function showPass(fieldId) {
+        var x = document.getElementById(fieldId);
+        var eyeIcon = $('#' + fieldId).siblings('.input-group').find('.eye');
+        
+        if (x.type === "password") {
+            x.type = "text";
+            eyeIcon.removeClass("fa-eye-slash").addClass("fa-eye");
+        } else {
+            x.type = "password";
+            eyeIcon.addClass("fa-eye-slash").removeClass("fa-eye");
+        }
+    }
+
+    $('#signupForm input').on('input', function () {
+    const email = $('#email').val();
+    const mobile = $('#mobile').val();
+    const password = $('#password').val();
+    const confirmPassword = $('#confirmPassword').val();
+    const chAgree = $('#chAgree').is(':checked');
+    const fullname = $('#fullname').val();
+
+    const fullnameValid = /^[A-Za-z\s]{3,50}$/.test(fullname);
+    const emailValid = /^(.*@gmail\.com|.*@outlook\.com|.*@hotmail\.com|.*@yahoo\.com)$/.test(email);
+    const passwordValid = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/.test(password);
+    const mobileValid = /^[0-9]{10,15}$/.test(mobile);
+    const passwordsMatch = password === confirmPassword;
+    const userExists = localStorage.getItem(email) !== null;
+
+    if (fullnameValid && emailValid && passwordValid && mobileValid && passwordsMatch && chAgree && !userExists) {
+        $('#submitBtn').prop('disabled', false);
+    } else {
+        $('#submitBtn').prop('disabled', true);
+    }
+});
+
+$('#signupForm').submit(function (event) {
+    event.preventDefault();
+
+    const email = $('#email').val();
+    const mobile = $('#mobile').val();
+    const password = $('#password').val();
+    const fullname = $('#fullname').val();
+
+    localStorage.setItem(email, JSON.stringify({
+        fullname: fullname,
+        email: email,
+        mobile: mobile,
+        password: password
+    }));
+
+    $('#submitBtn').prop('disabled', true);
+
+    swal({
+        title: "Account Created",
+        text: "Your account has been created successfully! Welcome, " + fullname,
+        icon: "success",
+        buttons: false,
+        timer: 3000,
+    }).then(() => {
+        window.location.href = 'login.html';
+    });
+});
+
+</script>
+
+</body>
+</html>

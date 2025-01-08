@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Validation Form</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        .err {
+            color: red;
+            font-size: 0.7em;
+        }
+
+        .success {
+            color: green;
+            font-size: 0.7em;
+        }
+    </style>
+</head>
+<body>
+<form name="pw" id="passwordForm">
+    <table>
+        <tr>
+            <td>Password (min 6 characters):</td>
+            <td>
+                <input type="password" name="password1" id="password1" size="10" placeholder="Password">
+            </td>
+            <td>
+                <div id="pw1_check" class="err"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Repeat password:</td>
+            <td>
+                <input type="password" name="password2" id="password2" size="10" placeholder="Repeat Password">
+            </td>
+            <td>
+                <div id="pw2_check" class="err"></div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" id="submitBtn"/>
+</form>
+
+<script>
+    // استدعاء العناصر
+    const password1 = document.getElementById("password1");
+    const password2 = document.getElementById("password2");
+    const pw1Check = document.getElementById("pw1_check");
+    const pw2Check = document.getElementById("pw2_check");
+    const form = document.getElementById("passwordForm");
+
+    // التحقق أثناء الكتابة
+    password1.addEventListener("input", validatePassword1);
+    password2.addEventListener("input", validatePassword2);
+
+    // التحقق عند الإرسال
+    form.addEventListener("submit", function (e) {
+        validatePassword1();
+        validatePassword2();
+
+        if (pw1Check.textContent || pw2Check.textContent) {
+            e.preventDefault(); // منع الإرسال إذا كان هناك أخطاء
+        }
+    });
+
+    // التحقق من الحد الأدنى للأحرف
+    function validatePassword1() {
+        const value = password1.value;
+
+        if (value.length < 6) {
+            pw1Check.textContent = "Password must be at least 6 characters.";
+        } else {
+            pw1Check.textContent = "";
+        }
+    }
+
+    // التحقق من تطابق كلمات المرور
+    function validatePassword2() {
+        if (password1.value !== password2.value) {
+            pw2Check.textContent = "Passwords do not match.";
+        } else {
+            pw2Check.textContent = "";
+        }
+    }
+</script>
+</body>
+</html>

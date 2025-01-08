@@ -1,0 +1,196 @@
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3> Countdown Timer </h3>
+    <input id="timer" type="text" size="20" placeholder="Enter seconds">
+    <input type="button" onclick="countdown ()" value="Start Timer">
+    <p id="placetimer"></p>
+
+
+    <script>
+        let x ;
+function countdown (){
+    clearInterval(x);
+const timer = document.getElementById("timer");
+const placetimer = document.getElementById("placetimer");
+let z = timer.value;
+
+if(isNaN(z) || z <= 0){
+    placetimer.textContent="Please enter a valid duration in seconds";
+    return;
+
+}
+
+placetimer.textContent = z +" seconds";
+ x = setInterval(() =>{
+   z --;
+if(z > 0 ){
+placetimer.textContent = z + " seconds";
+}else{
+    
+   placetimer.textContent = "time is up";
+}
+
+
+}
+
+
+,1000);
+
+
+
+}
+
+    </script>
+</body> -->
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #timer-display {
+            font-size: 2em;
+            color: #333;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <input type="number" id="duration" placeholder="Enter duration in seconds">
+    <button onclick="startTimer()">Start Timer</button>
+    <p id="timer-display">Enter a duration and click "Start Timer"</p>
+
+    <script>
+        let y;
+        function startTimer(){
+            clearInterval(y);
+    
+    
+    let duration = document.getElementById("duration");
+    let text1 =document.getElementById("timer-display");
+    
+    let x =parseInt(duration.value);
+
+    if(isNaN (x) || x<=0){
+        text1.textContent="Please enter a valid duration in seconds.";
+        return;
+    }
+    text1.textContent = x + " seconds"
+
+
+       y= setInterval(() => {
+            x--;
+    if(x >0 ){
+    text1.textContent = x + " seconds"
+
+
+        }else{
+            clearInterval(y);
+            text1.textContent = "Time's up!";};
+
+        }, 1000);
+
+
+}
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!-- <script>
+    let timerInterval;
+
+    function startTimer() {
+        clearInterval(timerInterval);
+
+        const durationInput = document.getElementById('duration');
+        const timerDisplay = document.getElementById('timer-display');
+
+        let duration = parseInt(durationInput.value);
+
+        if (isNaN(duration) || duration <= 0) {
+            timerDisplay.textContent = "Please enter a valid duration in seconds.";
+            return;
+        }
+
+        timerDisplay.textContent = duration + " seconds remaining";
+
+        timerInterval = setInterval(() => {
+            duration--;
+            if (duration > 0) {
+                timerDisplay.textContent = duration + " seconds remaining";
+            } else {
+                clearInterval(timerInterval);
+                timerDisplay.textContent = "Time's up!";
+            }
+        }, 1000);
+    }
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
+
+    function startTimer(){
+    
+    let duration = document.getElementById("duration");
+    let text1 =document.getElementById("timer-display");
+    
+    let x = parseInt(duration.value);
+    
+    if(isNaN (x) || x <= 0){
+        text1.textContent="Please enter a valid duration in seconds."
+    return ;
+    }
+    
+    text1.textContent= x + " second";
+    
+    let y = setInterval(() => {
+    
+    x--;
+    
+    if (x>0){
+    text1.textContent= x + " second";
+    
+    }else{
+        text1.textContent ="Time's up!"
+    }
+    
+    }, 1000);
+    
+    }
+    
+        </script>
+        -->

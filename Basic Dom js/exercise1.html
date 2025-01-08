@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #1:</title>
+    <style>
+        #mydiv {
+            width: 300px;
+            height: 50px;
+            line-height: 50px; 
+            text-align: center;
+            border: 1px solid black;
+            background-color: yellow;
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="mydiv" onmouseover="mover()" onmouseout="mout()">Hello world</div>
+<script>
+    function mover() {
+        document.getElementById("mydiv").innerHTML='Can I Help You'
+
+    }
+    function mout() {
+        document.getElementById("mydiv").innerHTML='Hello World'
+    }
+
+</script>
+
+</body>
+</html>

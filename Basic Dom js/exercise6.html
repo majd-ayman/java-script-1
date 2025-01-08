@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise #7: Simple Playlist</title>
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: darkred;
+      }
+
+      #clearButton {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: gray;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #clearButton:hover {
+        background-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>
+      This is your playlist. Enter a song name and click "Add Song" to add it to
+      the list. You can also remove songs or clear the entire playlist.
+    </p>
+
+    <form>
+      <input
+        type="text"
+        id="songTextInput"
+        size="40"
+        placeholder="Song name"
+      />
+      <input type="button" id="addButton" value="Add Song" />
+      <input type="button" id="clearButton" value="Clear All" />
+    </form>
+
+    <ul id="playlist">
+    </ul>
+
+    <script>
+      document.getElementById("addButton").onclick = function () {
+        let songName = document.getElementById("songTextInput").value.trim(); 
+
+        if (songName === "") {
+          alert("Please enter a song name."); 
+          return; 
+        }
+
+        let playlist = document.getElementById("playlist");
+        let node = document.createElement("li"); 
+        let textnode = document.createTextNode(songName); 
+        node.appendChild(textnode); 
+
+        let button = document.createElement("button");
+        button.textContent = "Delete";
+        node.appendChild(button); 
+        playlist.appendChild(node); 
+
+        
+        document.getElementById("songTextInput").value = "";
+      };
+
+      document.getElementById("playlist").addEventListener("click", function (e) {
+        if (e.target.tagName === "BUTTON") {
+          e.target.parentNode.remove(); 
+        }
+      });
+
+      document.getElementById("clearButton").onclick = function () {
+        document.getElementById("playlist").innerHTML = ""; 
+      };
+
+      document
+        .getElementById("songTextInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            document.getElementById("addButton").click(); 
+          }
+        });
+    </script>
+  </body>
+</html>
