@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX Chat Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    .chat-box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+      margin: 0 auto 10px auto;
+    }
+    .input-box {
+      display: flex;
+      justify-content: center;
+    }
+    input[type="text"] {
+      width: 200px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>AJAX Chat Application</h1>
+  <div class="chat-box" id="chat-box"></div>
+  <div class="input-box">
+    <input type="text" id="chat-input" placeholder="Type a message...">
+    <button id="add-comment">Add Comment</button>
+  </div>
+  <script>
+    document.getElementById('chat-input').addEventListener('input', function() {
+      var chatBox = document.getElementById('chat-box');
+      chatBox.innerHTML = this.value;
+    });
+
+    document.getElementById('add-comment').addEventListener('click', function() {
+      var input = document.getElementById('chat-input').value;
+      if (input.trim() !== "") {
+        var chatBox = document.getElementById('chat-box');
+        var newComment = document.createElement('div');
+        newComment.textContent = input;
+        chatBox.appendChild(newComment);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "your-server-endpoint", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // Handle response here
+            console.log(xhr.responseText);
+          }
+        };
+        xhr.send("comment=" + encodeURIComponent(input));
+
+        // Clear the input field after adding the comment
+        document.getElementById('chat-input').value = '';
+      }
+    });
+  </script>
+</body>
+</html>

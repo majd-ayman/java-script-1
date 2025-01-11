@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جميع أنواع الدوال في JavaScript</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 140px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+    }
+
+    .error {
+      color: red;
+      font-size: 18px;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      overflow-x: auto;
+    }
+
+    .centered-button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>أنواع الدوال في JavaScript</h1>
+
+    <div class="button-container">
+      <button onclick="regularFunction()">الدالة العادية</button>
+      <button onclick="functionExpression()">الدالة التعبيرية</button>
+      <button onclick="arrowFunction()">دالة السهم</button>
+      <button onclick="returnFunction()">دالة ذات قيمة رجعية</button>
+      <button onclick="callbackFunction()">دالة العودة</button>
+      <button onclick="loadUserData()">الدالة غير المتزامنة</button>
+    </div>
+
+    <div class="centered-button">
+      <button onclick="createPerson()">دالة التهيئة</button>
+    </div>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    // 1. الدالة العادية (Regular Function)
+    function regularFunction() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<h3>الدالة العادية:</h3>';
+      output.innerHTML += `<pre>${regularFunctionImplementation()}</pre>`;
+    }
+
+    function regularFunctionImplementation() {
+      return 'هذه دالة عادية تُعيد نصًا.';
+    }
+
+    // 2. الدالة التعبيرية (Function Expression)
+    const functionExpression = function() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<h3>الدالة التعبيرية:</h3>';
+      output.innerHTML += `<pre>${functionExpressionImplementation()}</pre>`;
+    };
+
+    const functionExpressionImplementation = function() {
+      return 'هذه دالة تم تخزينها في متغير.';
+    }
+
+    // 3. دالة السهم (Arrow Function)
+    const arrowFunction = () => {
+      const output = document.getElementById('output');
+      output.innerHTML = '<h3>دالة السهم:</h3>';
+      output.innerHTML += `<pre>${arrowFunctionImplementation()}</pre>`;
+    };
+
+    const arrowFunctionImplementation = () => 'هذه دالة سهم.';
+
+    // 4. دالة ذات قيمة رجعية (Return Function)
+    function returnFunction() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<h3>دالة ذات قيمة رجعية:</h3>';
+      output.innerHTML += `<pre>${returnFunctionImplementation(10, 20)}</pre>`;
+    }
+
+    function returnFunctionImplementation(a, b) {
+      return a + b;
+    }
+
+    // 5. دالة العودة (Callback Function)
+    function callbackFunction() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<h3>دالة العودة:</h3>';
+      output.innerHTML += `<pre>${callbackImplementation(showResult)}</pre>`;
+    }
+
+    function callbackImplementation(callback) {
+      const result = "تمت العملية بنجاح!";
+      callback(result);
+    }
+
+    function showResult(message) {
+      return message;
+    }
+
+    // 6. الدالة غير المتزامنة (Asynchronous Function)
+    async function loadUserData() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<h3>الدالة غير المتزامنة:</h3>';
+      output.innerHTML += '<p>جاري تحميل البيانات...</p>';
+      
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+        const userData = await response.json();
+        output.innerHTML = `<h4>معلومات المستخدم:</h4>
+                            <pre>${JSON.stringify(userData, null, 2)}</pre>`;
+      } catch (error) {
+        output.innerHTML = `<p class="error">حدث خطأ أثناء تحميل البيانات.</p>`;
+      }
+    }
+
+    // 7. دالة التهيئة (Constructor Function)
+    function createPerson() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<h3>دالة التهيئة:</h3>';
+
+      const person1 = new Person('أحمد', 25);
+      output.innerHTML += `<pre>${person1.getPersonInfo()}</pre>`;
+    }
+
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.getPersonInfo = function() {
+        return `الاسم: ${this.name}, العمر: ${this.age}`;
+      };
+    }
+  </script>
+</body>
+</html>

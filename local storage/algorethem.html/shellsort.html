@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shell Sort and JS Map/Filter</title>
+</head>
+<body>
+  <h1>Shell Sort and JS Map/Filter Examples</h1>
+
+  <h2>Shell Sort Example</h2>
+
+  <script>
+function shellSort(arr) {
+    let n = arr.length;
+
+    // بدء gap بأكبر قيمة
+    for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        // تطبيق Insertion Sort على العناصر التي تفصل بينها gap
+        for (let i = gap; i < n; i++) {
+            let temp = arr[i];
+            let j = i;
+
+            // نقل العناصر التي هي أكبر من temp للموضع التالي
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+
+            // وضع العنصر في مكانه الصحيح
+            arr[j] = temp;
+        }
+    }
+}
+
+// دالة لطباعة المصفوفة
+function printArray(arr) {
+    console
+    .log(arr.join(" "));
+}
+
+// مثال للاستخدام
+let arr = [5, 2, 9, 1, 5, 6];
+
+console.log("المصفوفة قبل الترتيب:");
+printArray(arr);
+
+// تطبيق خوارزمية Shell Sort
+shellSort(arr);
+
+console.log("المصفوفة بعد الترتيب:");
+printArray(arr);
+
+
+// استخدام map لزيادة كل عنصر بمقدار 1
+let mappedArray = arr.map(item => item + 1);
+console.log("المصفوفة بعد استخدام map (زيادة كل عنصر بمقدار 1):");
+printArray(mappedArray);
+
+// استخدام filter لاستخراج الأرقام التي هي أكبر من 5
+let filteredArray = arr.filter(item => item > 5);
+console.log("المصفوفة بعد استخدام filter (أرقام أكبر من 5):");
+printArray(filteredArray);
+
+  </script>
+</body>
+</html>
